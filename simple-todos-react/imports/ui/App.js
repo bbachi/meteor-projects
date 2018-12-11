@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
- 
+import { WithTracker } from 'meteor/react-meteor-data';
 import Task from './Task.js';
+import { Tasks } from '../api/tasks.js';
  
 // App component - represents the whole app
-export default class App extends Component {
+class App extends Component {
   getTasks() {
     return [
       { _id: 1, text: 'This is task 1' },
@@ -32,3 +33,9 @@ export default class App extends Component {
     );
   }
 }
+
+export default WithTracker(() => {
+    return {
+        tasks: Tasks.find({}).fetch(),
+    }
+})(App);
