@@ -9,8 +9,6 @@ WORKDIR /usr/app
 
 RUN curl https://install.meteor.com/ | sh
 
-
-
 RUN echo 'Setting the work directory to /usr/app'
 
 
